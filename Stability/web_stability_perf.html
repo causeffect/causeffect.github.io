@@ -1,0 +1,346 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Stability and Performance on TieNet</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-06"><meta name="DC.source" content="web_stability_perf.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Stability and Performance on TieNet</h1><!--introduction--><p>Mehmet Ugurbil</p><p>Unversity of Minnesota</p><p>06-Jun-2018</p><p><a href="https://mugurbil.github.io">Back to Home Page</a></p><p>
+<head>
+<style>
+iframe {
+float: left;
+width: 50%;
+}
+</style>
+</head>
+</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Aim</a></li><li><a href="#2">Null Hypothesis</a></li><li><a href="#3">Experiment Design</a></li><li><a href="#4">Observations</a></li><li><a href="#5">Dataset Descriptions</a></li><li><a href="#6">Performance</a></li><li><a href="#7">The End</a></li></ul></div><h2 id="1">Aim</h2><p>
+1. Show that stability of feature selector is not correlated with the performance of the selected features.<br/>
+- - In other words, different sets of features can have equal signal strength.<br/>
+2. Instability can exist even when no information equivalency is present in the dataset.<br/>
+3. The claims hold for datasets with multiplicity, withot multiplicity, removed according to true graph or using Tie* results, and with large number of weak variables with and without added error.<br/>
+</p><h2 id="2">Null Hypothesis</h2><p>
+Instable feature selection leads to poor performance.<br/>
+</p><h2 id="3">Experiment Design</h2><p>
+1. Feature selection and svm classification on cross validation sets of small sample.<br/>
+- - Assesment of performance on 50 repeat, 10 fold cross validation.<br/>
+- - Calculation of stability metrics.<br/>
+2. Feature selection and svm classification on entire small sample.<br/>
+- - Model validation performance assesed on hold out testing set.<br/>
+3. SVM classification using features selected in (2) on large sample training set.<br/>
+- - Feature validation performance assesed on hold out testing set.<br/>
+</p><h2 id="4">Observations</h2><p>
+1. Monotonic performance increase is observed as sample size increases.<br/>
+2. Performance of the models approach the theoretical limit in the large sample limit.<br/>
+3. Instable features selected in small sample region generalize well.<br/>
+4. Stability in RFE increases initially, sees a minima for medium sample size, then continues increasing.<br/>
+</p><h2 id="5">Dataset Descriptions</h2><p>
+TIE-Net = Original simulated data - <a href="http://www.jmlr.org/papers/volume16/statnikov15a/statnikov15a.pdf">TIE near-faithful causal network</a>.<br/>
+TIE-Net-Reduced1 = TIE-Net with multiplicity removed according to the original graph.<br/>
+TIE-Net-Reduced2 = TIE-Net with multiplicity removed using Tie* Algorithm.<br/>
+- - Note that this is not one dataset, but one for each repeat per sample size (550 total).<br/>
+- - This also implies that the feature stability doesn't make sense in this dataset, but included for completeness.<br/>
+TIE-Net-Weak1 = TIE-Net with weak variables multiplied 50 times.<br/>
+TIE-Net-Weak2 = TIE-Net-Weak1 with gaussian noise, uniformly random deviation.
+</p><h2 id="6">Performance</h2><p>
+<body>
+<div style="width: 100%; overflow: hidden;">
+<div style="margin-left: 20px;">
+<form name="change">
+Frame 1:
+<select name="options" id="options1" onChange="changeFunction('iframe1', 'options1', 'options2')">
+<option value="empty"> Dataset </option>
+<option value="Performance/Summary_TieNet_"> TIE-Net </option>
+<option value="Performance/Summary_RedNet_"> TIE-Net-Reduced1 </option>
+<option value="Performance/Summary_StrNet_"> TIE-Net-Reduced2 </option>
+<option value="Performance/Summary_MltNet_"> TIE-Net-Weak1 </option>
+<option value="Performance/Summary_ErrNet_"> TIE-Net-Weak2 </option>
+</select>
+<select name="options" id="options2" onChange="changeFunction('iframe1', 'options1', 'options2')">
+<option value="empty"> FS Method </option>
+<option value="HPC_K_3/main.html"> GLL </option>
+<option value="RFE_LINEAR/main.html"> SVM-RFE </option>
+<option value="LARS_EN/main.html"> Elastic Net </option>
+</select>
+<span style="display:inline-block; width: 100;"></span>
+Frame 2:
+<select name="options" id="options3" onChange="changeFunction('iframe2', 'options3', 'options4')">
+<option value="empty"> Dataset </option>
+<option value="Performance/Summary_TieNet_"> TIE-Net </option>
+<option value="Performance/Summary_RedNet_"> TIE-Net-Reduced1 </option>
+<option value="Performance/Summary_StrNet_"> TIE-Net-Reduced2 </option>
+<option value="Performance/Summary_MltNet_"> TIE-Net-Weak1 </option>
+<option value="Performance/Summary_ErrNet_"> TIE-Net-Weak2 </option>
+</select>
+<select name="options" id="options4" onChange="changeFunction('iframe2', 'options3', 'options4')">
+<option value="empty"> FS Method </option>
+<option value="HPC_K_3/main.html"> GLL </option>
+<option value="RFE_LINEAR/main.html"> SVM-RFE </option>
+<option value="LARS_EN/main.html"> Elastic Net </option>
+</select>
+</form>
+</div>
+<div id="Perf">
+<iframe name="iframe" id="iframe1" src="" height = 1500></iframe>
+<iframe name="iframe" id="iframe2" src="" height = 1500></iframe>
+</div>
+</body>
+</p><h2 id="7">The End</h2><p>
+<script>
+function changeFunction(f,x,y,z) {
+   var f = document.getElementById(f)
+   var x = document.getElementById(x)
+   var x = x.options[x.selectedIndex].value
+   if ( y == undefined ) {
+       var y = ""
+   } else {
+       var y = document.getElementById(y)
+       var y = y.options[y.selectedIndex].value
+   }
+   if ( z == undefined ) {
+       var z = ""
+   } else {
+       var z = document.getElementById(z)
+       var z = z.options[z.selectedIndex].value
+   }
+   var w = x.concat(y,z)
+   if( x != "empty" && y != "empty" && z != "empty") {
+      f.src = w
+   }
+}
+ function myFunction(x) {
+     var x = document.getElementById(x);
+     if (x.style.display === "none") {
+         x.style.display = "block";
+     } else {
+         x.style.display = "none";
+     }
+}
+$(document).ready(function(){
+    $(".dropdown-submenu a.test").on("click", function(e){
+        $(this).next("ul").toggle();
+        e.stopPropagation();
+        e.preventDefault();
+    });
+});
+</script>
+</p><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Stability and Performance on TieNet
+%
+% Mehmet Ugurbil
+%
+% Unversity of Minnesota
+%
+% 06-Jun-2018
+%
+% <https://mugurbil.github.io Back to Home Page>
+%
+% <html>
+% <head>
+% <style>
+% iframe {
+% float: left;
+% width: 50%;
+% }
+% </style>
+% </head>
+% </html>
+
+%% Aim
+%
+% <html>
+% 1. Show that stability of feature selector is not correlated with the performance of the selected features.<br/>
+% - - In other words, different sets of features can have equal signal strength.<br/>
+% 2. Instability can exist even when no information equivalency is present in the dataset.<br/>
+% 3. The claims hold for datasets with multiplicity, withot multiplicity, removed according to true graph or using Tie* results, and with large number of weak variables with and without added error.<br/>
+% </html>
+%% Null Hypothesis
+%
+% <html>
+% Instable feature selection leads to poor performance.<br/>
+% </html>
+%% Experiment Design
+%
+% <html>
+% 1. Feature selection and svm classification on cross validation sets of small sample.<br/>
+% - - Assesment of performance on 50 repeat, 10 fold cross validation.<br/>
+% - - Calculation of stability metrics.<br/>
+% 2. Feature selection and svm classification on entire small sample.<br/>
+% - - Model validation performance assesed on hold out testing set.<br/>
+% 3. SVM classification using features selected in (2) on large sample training set.<br/>
+% - - Feature validation performance assesed on hold out testing set.<br/>
+% </html>
+%% Observations
+%
+% <html>
+% 1. Monotonic performance increase is observed as sample size increases.<br/>
+% 2. Performance of the models approach the theoretical limit in the large sample limit.<br/>
+% 3. Instable features selected in small sample region generalize well.<br/>
+% 4. Stability in RFE increases initially, sees a minima for medium sample size, then continues increasing.<br/>
+% </html>
+%% Dataset Descriptions
+%
+% <html>
+% TIE-Net = Original simulated data - <a href="http://www.jmlr.org/papers/volume16/statnikov15a/statnikov15a.pdf">TIE near-faithful causal network</a>.<br/>
+% TIE-Net-Reduced1 = TIE-Net with multiplicity removed according to the original graph.<br/>
+% TIE-Net-Reduced2 = TIE-Net with multiplicity removed using Tie* Algorithm.<br/>
+% - - Note that this is not one dataset, but one for each repeat per sample size (550 total).<br/>
+% - - This also implies that the feature stability doesn't make sense in this dataset, but included for completeness.<br/>
+% TIE-Net-Weak1 = TIE-Net with weak variables multiplied 50 times.<br/>
+% TIE-Net-Weak2 = TIE-Net-Weak1 with gaussian noise, uniformly random deviation.
+% </html>
+%% Performance
+%
+% <html>
+% <body>
+% <div style="width: 100%; overflow: hidden;">
+% <div style="margin-left: 20px;"> 
+% <form name="change">
+% Frame 1:
+% <select name="options" id="options1" onChange="changeFunction('iframe1', 'options1', 'options2')">
+% <option value="empty"> Dataset </option>
+% <option value="Performance/Summary_TieNet_"> TIE-Net </option>
+% <option value="Performance/Summary_RedNet_"> TIE-Net-Reduced1 </option>
+% <option value="Performance/Summary_StrNet_"> TIE-Net-Reduced2 </option>
+% <option value="Performance/Summary_MltNet_"> TIE-Net-Weak1 </option>
+% <option value="Performance/Summary_ErrNet_"> TIE-Net-Weak2 </option>
+% </select>
+% <select name="options" id="options2" onChange="changeFunction('iframe1', 'options1', 'options2')">
+% <option value="empty"> FS Method </option>
+% <option value="HPC_K_3/main.html"> GLL </option>
+% <option value="RFE_LINEAR/main.html"> SVM-RFE </option>
+% <option value="LARS_EN/main.html"> Elastic Net </option>
+% </select>
+% <span style="display:inline-block; width: 100;"></span>
+% Frame 2:
+% <select name="options" id="options3" onChange="changeFunction('iframe2', 'options3', 'options4')">
+% <option value="empty"> Dataset </option>
+% <option value="Performance/Summary_TieNet_"> TIE-Net </option>
+% <option value="Performance/Summary_RedNet_"> TIE-Net-Reduced1 </option>
+% <option value="Performance/Summary_StrNet_"> TIE-Net-Reduced2 </option>
+% <option value="Performance/Summary_MltNet_"> TIE-Net-Weak1 </option>
+% <option value="Performance/Summary_ErrNet_"> TIE-Net-Weak2 </option>
+% </select>
+% <select name="options" id="options4" onChange="changeFunction('iframe2', 'options3', 'options4')">
+% <option value="empty"> FS Method </option>
+% <option value="HPC_K_3/main.html"> GLL </option>
+% <option value="RFE_LINEAR/main.html"> SVM-RFE </option>
+% <option value="LARS_EN/main.html"> Elastic Net </option>
+% </select>
+% </form>
+% </div>
+% <div id="Perf">
+% <iframe name="iframe" id="iframe1" src="" height = 1500></iframe>
+% <iframe name="iframe" id="iframe2" src="" height = 1500></iframe>
+% </div>
+% </body>
+% </html>
+
+%% The End
+%
+% <html>
+% <script>
+% function changeFunction(f,x,y,z) {
+%    var f = document.getElementById(f)
+%    var x = document.getElementById(x)
+%    var x = x.options[x.selectedIndex].value
+%    if ( y == undefined ) {
+%        var y = ""
+%    } else {
+%        var y = document.getElementById(y)
+%        var y = y.options[y.selectedIndex].value
+%    }
+%    if ( z == undefined ) {
+%        var z = ""
+%    } else {
+%        var z = document.getElementById(z)
+%        var z = z.options[z.selectedIndex].value
+%    }
+%    var w = x.concat(y,z)
+%    if( x != "empty" && y != "empty" && z != "empty") {
+%       f.src = w
+%    }
+% }
+%  function myFunction(x) {
+%      var x = document.getElementById(x);
+%      if (x.style.display === "none") {
+%          x.style.display = "block";
+%      } else {
+%          x.style.display = "none";
+%      }
+% }
+% $(document).ready(function(){
+%     $(".dropdown-submenu a.test").on("click", function(e){
+%         $(this).next("ul").toggle();
+%         e.stopPropagation();
+%         e.preventDefault();
+%     });
+% });
+% </script>
+% </html>
+
+
+##### SOURCE END #####
+--></body></html>

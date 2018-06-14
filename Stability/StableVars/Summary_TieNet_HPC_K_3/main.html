@@ -1,0 +1,269 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Stable Variable Experiments on TIE-Net with GLL.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Stable Variable Experiments on TIE-Net with GLL.</h1><pre class="codeinput">summary_stable_vars(<span class="string">"TieNet"</span>, 1)
+</pre><pre class="codeoutput">Figure 1. GLL Model Generalizatbility.
+_______________________________________
+
+</pre><pre class="codeoutput">Figure 2. GLL Feature Generalizability.
+________________________________________
+
+</pre><pre class="codeoutput">Table 1. Stability Cut Off Performance. Sample Size = 50. GLL.
+_______________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.739 +/- 0.001 '        ' 0.773 +/- 0.001 '         ' 12.7 +/-  4.2 '              3       
+     '&gt;=10%'      ' 0.743 +/- 0.001 '        ' 0.773 +/- 0.001 '         ' 12.7 +/-  4.2 '              3       
+     '&gt;=20%'      ' 0.731 +/- 0.001 '        ' 0.766 +/- 0.001 '         '  7.7 +/-  2.7 '              3       
+     '&gt;=30%'      ' 0.721 +/- 0.002 '        ' 0.740 +/- 0.002 '         '  3.7 +/-  1.0 '              3       
+     '&gt;=40%'      ' 0.717 +/- 0.002 '        ' 0.740 +/- 0.002 '         '  3.7 +/-  1.0 '              3       
+     '&gt;=50%'      ' 0.692 +/- 0.002 '        ' 0.705 +/- 0.002 '         '  2.0 +/-  0.3 '              3       
+     '&gt;=60%'      ' 0.675 +/- 0.002 '        ' 0.683 +/- 0.002 '         '  2.5 +/-  0.4 '              2       
+     '&gt;=70%'      ' 0.669 +/- 0.002 '        ' 0.682 +/- 0.002 '         '  3.0 +/-  0.0 '              1       
+     '&gt;=80%'      ' 0.638 +/- 0.002 '        ' 0.642 +/- 0.002 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=90%'      ' 0.564 +/- 0.002 '        ' 0.564 +/- 0.002 '         '  1.0 +/-  0.0 '              1       
+
+Table 2. Stability Cut Off Performance. Sample Size = 100. GLL.
+________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.759 +/- 0.001 '        ' 0.778 +/- 0.001 '         ' 25.3 +/-  5.9 '              3       
+     '&gt;=10%'      ' 0.759 +/- 0.001 '        ' 0.778 +/- 0.001 '         ' 25.3 +/-  5.9 '              3       
+     '&gt;=20%'      ' 0.756 +/- 0.001 '        ' 0.771 +/- 0.001 '         ' 15.7 +/-  4.3 '              3       
+     '&gt;=30%'      ' 0.750 +/- 0.001 '        ' 0.760 +/- 0.001 '         '  9.0 +/-  5.7 '              2       
+     '&gt;=40%'      ' 0.751 +/- 0.001 '        ' 0.760 +/- 0.001 '         '  9.0 +/-  5.7 '              2       
+     '&gt;=50%'      ' 0.744 +/- 0.001 '        ' 0.752 +/- 0.001 '         '  3.5 +/-  1.8 '              2       
+     '&gt;=60%'      ' 0.740 +/- 0.001 '        ' 0.748 +/- 0.001 '         '  1.0 +/-  0.0 '              2       
+     '&gt;=70%'      ' 0.726 +/- 0.002 '        ' 0.726 +/- 0.002 '         '  1.0 +/-  0.0 '              1       
+     '&gt;=80%'      ' 0.682 +/- 0.002 '        ' 0.682 +/- 0.002 '         '  0.0 +/-  0.0 '              0       
+     '&gt;=90%'      ' 0.569 +/- 0.002 '        ' 0.569 +/- 0.002 '         '  0.0 +/-  0.0 '              0       
+
+Table 3. Stability Cut Off Performance. Sample Size = 200. GLL.
+________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.774 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 15.3 +/-  5.5 '              3       
+     '&gt;=10%'      ' 0.773 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 15.3 +/-  5.5 '              3       
+     '&gt;=20%'      ' 0.775 +/- 0.000 '        ' 0.785 +/- 0.000 '         ' 10.7 +/-  4.4 '              3       
+     '&gt;=30%'      ' 0.774 +/- 0.000 '        ' 0.783 +/- 0.000 '         '  8.7 +/-  3.9 '              3       
+     '&gt;=40%'      ' 0.775 +/- 0.000 '        ' 0.783 +/- 0.000 '         '  8.7 +/-  3.9 '              3       
+     '&gt;=50%'      ' 0.755 +/- 0.001 '        ' 0.764 +/- 0.001 '         '  6.3 +/-  2.8 '              3       
+     '&gt;=60%'      ' 0.702 +/- 0.002 '        ' 0.709 +/- 0.002 '         '  4.5 +/-  1.8 '              2       
+     '&gt;=70%'      ' 0.668 +/- 0.003 '        ' 0.679 +/- 0.003 '         '  2.0 +/-  0.0 '              2       
+     '&gt;=80%'      ' 0.645 +/- 0.002 '        ' 0.658 +/- 0.003 '         '  1.0 +/-  0.0 '              2       
+     '&gt;=90%'      ' 0.540 +/- 0.001 '        ' 0.546 +/- 0.001 '         '  1.0 +/-  0.0 '              1       
+
+Table 4. Stability Cut Off Performance. Sample Size = 300. GLL.
+________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.779 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 17.3 +/-  6.6 '              3       
+     '&gt;=10%'      ' 0.777 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 17.3 +/-  6.6 '              3       
+     '&gt;=20%'      ' 0.779 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 14.7 +/-  5.9 '              3       
+     '&gt;=30%'      ' 0.780 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 10.7 +/-  4.7 '              3       
+     '&gt;=40%'      ' 0.779 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 10.7 +/-  4.7 '              3       
+     '&gt;=50%'      ' 0.755 +/- 0.002 '        ' 0.758 +/- 0.002 '         ' 10.0 +/-  4.6 '              3       
+     '&gt;=60%'      ' 0.736 +/- 0.002 '        ' 0.738 +/- 0.002 '         '  8.0 +/-  3.8 '              3       
+     '&gt;=70%'      ' 0.715 +/- 0.002 '        ' 0.716 +/- 0.002 '         '  9.0 +/-  5.7 '              2       
+     '&gt;=80%'      ' 0.604 +/- 0.002 '        ' 0.603 +/- 0.002 '         '  4.0 +/-  2.1 '              2       
+     '&gt;=90%'      ' 0.598 +/- 0.002 '        ' 0.598 +/- 0.002 '         '  1.0 +/-  0.0 '              2       
+
+Table 5. Stability Cut Off Performance. Sample Size = 400. GLL.
+________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.776 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 18.3 +/-  6.3 '              3       
+     '&gt;=10%'      ' 0.776 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 18.3 +/-  6.3 '              3       
+     '&gt;=20%'      ' 0.778 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 15.7 +/-  5.3 '              3       
+     '&gt;=30%'      ' 0.777 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 12.7 +/-  4.7 '              3       
+     '&gt;=40%'      ' 0.777 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 12.7 +/-  4.7 '              3       
+     '&gt;=50%'      ' 0.771 +/- 0.001 '        ' 0.777 +/- 0.001 '         ' 11.3 +/-  4.8 '              3       
+     '&gt;=60%'      ' 0.733 +/- 0.002 '        ' 0.737 +/- 0.002 '         '  6.3 +/-  2.2 '              3       
+     '&gt;=70%'      ' 0.711 +/- 0.002 '        ' 0.714 +/- 0.002 '         '  2.7 +/-  1.0 '              3       
+     '&gt;=80%'      ' 0.702 +/- 0.002 '        ' 0.702 +/- 0.002 '         '  3.5 +/-  1.8 '              2       
+     '&gt;=90%'      ' 0.683 +/- 0.003 '        ' 0.683 +/- 0.003 '         '  1.5 +/-  0.4 '              2       
+
+Table 6. Stability Cut Off Performance. Sample Size = 500. GLL.
+________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.784 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 21.3 +/-  6.0 '              3       
+     '&gt;=10%'      ' 0.783 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 21.3 +/-  6.0 '              3       
+     '&gt;=20%'      ' 0.783 +/- 0.000 '        ' 0.788 +/- 0.000 '         ' 17.3 +/-  6.0 '              3       
+     '&gt;=30%'      ' 0.783 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 11.0 +/-  3.8 '              3       
+     '&gt;=40%'      ' 0.783 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 11.0 +/-  3.8 '              3       
+     '&gt;=50%'      ' 0.770 +/- 0.001 '        ' 0.772 +/- 0.001 '         '  7.3 +/-  3.1 '              3       
+     '&gt;=60%'      ' 0.759 +/- 0.001 '        ' 0.760 +/- 0.001 '         '  2.0 +/-  0.3 '              3       
+     '&gt;=70%'      ' 0.735 +/- 0.002 '        ' 0.737 +/- 0.002 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=80%'      ' 0.697 +/- 0.002 '        ' 0.701 +/- 0.002 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=90%'      ' 0.635 +/- 0.003 '        ' 0.639 +/- 0.003 '         '  2.0 +/-  0.0 '              1       
+
+Table 7. Stability Cut Off Performance. Sample Size = 1000. GLL.
+_________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.785 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 26.3 +/-  5.0 '              3       
+     '&gt;=10%'      ' 0.785 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 26.3 +/-  5.0 '              3       
+     '&gt;=20%'      ' 0.785 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 17.3 +/-  4.8 '              3       
+     '&gt;=30%'      ' 0.784 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.3 +/-  4.2 '              3       
+     '&gt;=40%'      ' 0.784 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.3 +/-  4.2 '              3       
+     '&gt;=50%'      ' 0.778 +/- 0.001 '        ' 0.782 +/- 0.001 '         '  8.0 +/-  3.2 '              3       
+     '&gt;=60%'      ' 0.780 +/- 0.000 '        ' 0.782 +/- 0.000 '         '  5.7 +/-  2.1 '              3       
+     '&gt;=70%'      ' 0.751 +/- 0.002 '        ' 0.752 +/- 0.002 '         '  7.0 +/-  3.5 '              2       
+     '&gt;=80%'      ' 0.706 +/- 0.002 '        ' 0.706 +/- 0.002 '         '  4.0 +/-  1.4 '              2       
+     '&gt;=90%'      ' 0.617 +/- 0.003 '        ' 0.617 +/- 0.003 '         '  2.0 +/-  0.7 '              2       
+
+Table 8. Stability Cut Off Performance. Sample Size = 2000. GLL.
+_________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.789 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 18.7 +/-  6.5 '              3       
+     '&gt;=10%'      ' 0.789 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 18.7 +/-  6.5 '              3       
+     '&gt;=20%'      ' 0.788 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 16.3 +/-  6.0 '              3       
+     '&gt;=30%'      ' 0.788 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 13.7 +/-  5.0 '              3       
+     '&gt;=40%'      ' 0.788 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 13.7 +/-  5.0 '              3       
+     '&gt;=50%'      ' 0.779 +/- 0.001 '        ' 0.781 +/- 0.001 '         '  8.0 +/-  3.5 '              3       
+     '&gt;=60%'      ' 0.753 +/- 0.002 '        ' 0.755 +/- 0.002 '         '  7.3 +/-  3.1 '              3       
+     '&gt;=70%'      ' 0.733 +/- 0.002 '        ' 0.733 +/- 0.002 '         '  7.0 +/-  2.9 '              3       
+     '&gt;=80%'      ' 0.669 +/- 0.002 '        ' 0.670 +/- 0.002 '         '  4.7 +/-  1.8 '              3       
+     '&gt;=90%'      ' 0.686 +/- 0.002 '        ' 0.685 +/- 0.002 '         '  3.0 +/-  1.4 '              2       
+
+Table 9. Stability Cut Off Performance. Sample Size = 5000. GLL.
+_________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.792 +/- 0.000 '        ' 0.793 +/- 0.000 '         ' 29.3 +/-  4.6 '              3       
+     '&gt;=10%'      ' 0.792 +/- 0.000 '        ' 0.793 +/- 0.000 '         ' 29.3 +/-  4.6 '              3       
+     '&gt;=20%'      ' 0.791 +/- 0.000 '        ' 0.792 +/- 0.000 '         ' 26.0 +/-  5.2 '              3       
+     '&gt;=30%'      ' 0.790 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 20.3 +/-  4.9 '              3       
+     '&gt;=40%'      ' 0.790 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 20.3 +/-  4.9 '              3       
+     '&gt;=50%'      ' 0.785 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 18.0 +/-  4.4 '              3       
+     '&gt;=60%'      ' 0.762 +/- 0.001 '        ' 0.762 +/- 0.001 '         ' 17.0 +/-  4.3 '              3       
+     '&gt;=70%'      ' 0.742 +/- 0.002 '        ' 0.742 +/- 0.002 '         ' 19.5 +/-  2.5 '              2       
+     '&gt;=80%'      ' 0.673 +/- 0.002 '        ' 0.673 +/- 0.002 '         ' 17.5 +/-  3.9 '              2       
+     '&gt;=90%'      ' 0.598 +/- 0.002 '        ' 0.598 +/- 0.002 '         ' 10.5 +/-  0.4 '              2       
+
+Table 10. Stability Cut Off Performance. Sample Size = 10000. GLL.
+___________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.795 +/- 0.000 '        ' 0.796 +/- 0.000 '         ' 28.0 +/-  4.0 '              3       
+     '&gt;=10%'      ' 0.795 +/- 0.000 '        ' 0.796 +/- 0.000 '         ' 28.0 +/-  4.0 '              3       
+     '&gt;=20%'      ' 0.794 +/- 0.000 '        ' 0.794 +/- 0.000 '         ' 25.7 +/-  4.1 '              3       
+     '&gt;=30%'      ' 0.792 +/- 0.000 '        ' 0.792 +/- 0.000 '         ' 21.3 +/-  5.1 '              3       
+     '&gt;=40%'      ' 0.792 +/- 0.000 '        ' 0.792 +/- 0.000 '         ' 21.3 +/-  5.1 '              3       
+     '&gt;=50%'      ' 0.787 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 20.3 +/-  5.0 '              3       
+     '&gt;=60%'      ' 0.773 +/- 0.001 '        ' 0.773 +/- 0.001 '         ' 19.0 +/-  4.9 '              3       
+     '&gt;=70%'      ' 0.756 +/- 0.001 '        ' 0.756 +/- 0.001 '         ' 18.0 +/-  4.9 '              3       
+     '&gt;=80%'      ' 0.753 +/- 0.001 '        ' 0.753 +/- 0.001 '         ' 23.5 +/-  1.1 '              2       
+     '&gt;=90%'      ' 0.763 +/- 0.001 '        ' 0.763 +/- 0.001 '         ' 19.5 +/-  3.9 '              2       
+
+Table 11. Stability Cut Off Performance. Sample Size = 100000. GLL.
+____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  31.7 +/-   3.4 '             3       
+     '&gt;=10%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  31.7 +/-   3.4 '             3       
+     '&gt;=20%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  26.3 +/-   4.0 '             3       
+     '&gt;=30%'      ' 0.795 +/- 0.000 '        ' 0.795 +/- 0.000 '        '  21.7 +/-   4.9 '             3       
+     '&gt;=40%'      ' 0.795 +/- 0.000 '        ' 0.795 +/- 0.000 '        '  21.7 +/-   4.9 '             3       
+     '&gt;=50%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '        '  20.3 +/-   5.0 '             3       
+     '&gt;=60%'      ' 0.753 +/- 0.001 '        ' 0.753 +/- 0.001 '        '  19.7 +/-   5.4 '             3       
+     '&gt;=70%'      ' 0.719 +/- 0.002 '        ' 0.719 +/- 0.002 '        '  18.7 +/-   5.1 '             3       
+     '&gt;=80%'      ' 0.651 +/- 0.002 '        ' 0.651 +/- 0.002 '        '  27.0 +/-   0.0 '             2       
+     '&gt;=90%'      ' 0.586 +/- 0.002 '        ' 0.586 +/- 0.002 '        '  21.0 +/-   2.1 '             2       
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Stable Variable Experiments on TIE-Net with GLL.
+summary_stable_vars("TieNet", 1)
+
+##### SOURCE END #####
+--></body></html>

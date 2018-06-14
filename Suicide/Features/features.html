@@ -1,0 +1,302 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Feature Selection HitonPC (k=3)</title><meta name="generator" content="MATLAB 9.3"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-03-22"><meta name="DC.source" content="features.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Feature Selection HitonPC (k=3)</h1><!--introduction--><p>Mehmet Ugurbil</p><p>Unversity of Minnesota</p><p>22-Mar-2018</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Table of AUC Results</a></li><li><a href="#2">Table of Features Selected</a></li><li><a href="#3">Feature Frequency Plots</a></li><li><a href="#4">The End</a></li></ul></div><h2 id="1">Table of AUC Results</h2><p>
+<body>
+<button onclick="myFunction('AUCTable')"> Show/Hide </button>
+<div id="AUCTable">
+<iframe name="iframe" id="iframe_0" src="auc/main.html" width=1000 height=500></iframe>
+</div>
+</body>
+</p><h2 id="2">Table of Features Selected</h2><p>
+<body>
+<button onclick="myFunction('FeatureTable')"> Show/Hide </button>
+<div id="FeatureTable">
+<iframe name="iframe" id="iframe_1" src="table/main.html" width=1000 height=1500></iframe>
+</div>
+</body>
+</p><h2 id="3">Feature Frequency Plots</h2><p>
+<body>
+<form name="change">
+<select name="options_2" onChange="document.getElementById('iframe_2').src = this.options[this.selectedIndex].value">
+<option value=""> Choose </option>
+<option value="feature_39/main.html"> Feature 39. K6SCMON. </option>
+<option value="feature_42/main.html"> Feature 42. WSPDSC2. </option>
+<option value="feature_66/main.html"> Feature 66. NRCH17_2. </option>
+<option value="feature_84/main.html"> Feature 84. IRANLAGE_-1. </option>
+<option value="feature_132/main.html"> Feature 132. ABODIEM_0. </option>
+<option value="feature_428/main.html"> Feature 428. AMHSVNO_3. </option>
+<option value="feature_430/main.html"> Feature 430. AMHTXND2_1. </option>
+<option value="feature_434/main.html"> Feature 434. AMHTXAND_3. </option>
+<option value="feature_442/main.html"> Feature 442. MHASPTR2_0. </option>
+<option value="feature_461/main.html"> Feature 461. SNYATTAK_1. </option>
+<option value="feature_749/main.html"> Feature 749. DSTHOP30_2. </option>
+<option value="feature_769/main.html"> Feature 769. DSTNGD30_2. </option>
+<option value="feature_800/main.html"> Feature 800. DSTNGD12_1. </option>
+<option value="feature_818/main.html"> Feature 818. IMPGOUTM_1. </option>
+<option value="feature_844/main.html"> Feature 844. IMPRESP_4. </option>
+<option value="feature_853/main.html"> Feature 853. IMPDYFRQ_1. </option>
+<option value="feature_858/main.html"> Feature 858. SPDMON_0. </option>
+<option value="feature_950/main.html"> Feature 950. ADPBINTF_1. </option>
+<option value="feature_1093/main.html"> Feature 1093. YUHOSPYR_1. </option>
+<option value="feature_104/main.html"> Feature 104. DPILANAL_0. </option>
+<option value="feature_238/main.html"> Feature 238. USEALCG_11. </option>
+<option value="feature_265/main.html"> Feature 265. TXILANAL_0. </option>
+<option value="feature_1724/main.html"> Feature 1724. JBSTATR2_3. </option>
+<option value="feature_126/main.html"> Feature 126. ABODINH_0. </option>
+<option value="feature_205/main.html"> Feature 205. DRIVALC2_3. </option>
+<option value="feature_986/main.html"> Feature 986. ADPSRELS_-1. </option>
+<option value="feature_124/main.html"> Feature 124. ABODHAL_0. </option>
+<option value="feature_314/main.html"> Feature 314. HPDRGTLK_-1. </option>
+<option value="feature_315/main.html"> Feature 315. HPDRGTLK_1. </option>
+<option value="feature_760/main.html"> Feature 760. DSTCHR30_3. </option>
+<option value="feature_823/main.html"> Feature 823. IMPPEOP_4. </option>
+<option value="feature_1560/main.html"> Feature 1560. ED4FLAG_-1. </option>
+<option value="feature_88/main.html"> Feature 88. IRSEDAGE_-1. </option>
+<option value="feature_206/main.html"> Feature 206. DRIVDRG2_1. </option>
+<option value="feature_410/main.html"> Feature 410. AMHINP2_1. </option>
+<option value="feature_1009/main.html"> Feature 1009. ADSEEDOC_-1. </option>
+<option value="feature_830/main.html"> Feature 830. IMPSOC_4. </option>
+<option value="feature_975/main.html"> Feature 975. ADPSWORK_-1. </option>
+<option value="feature_134/main.html"> Feature 134. ABODILAL_0. </option>
+<option value="feature_1018/main.html"> Feature 1018. ADPSYMD_1. </option>
+<option value="feature_23/main.html"> Feature 23. CRKAGLST. </option>
+<option value="feature_81/main.html"> Feature 81. IRPCPAGE_-1. </option>
+<option value="feature_83/main.html"> Feature 83. IRINHAGE_-1. </option>
+<option value="feature_135/main.html"> Feature 135. ABDILAAL_0. </option>
+<option value="feature_984/main.html"> Feature 984. ADPSWORK_8. </option>
+<option value="feature_1559/main.html"> Feature 1559. CADRKDRG_1. </option>
+<option value="feature_1751/main.html"> Feature 1751. WRKJOBS2_2. </option>
+<option value="feature_16/main.html"> Feature 16. IRSEDAGE. </option>
+<option value="feature_44/main.html"> Feature 44. WHODASC3. </option>
+<option value="feature_98/main.html"> Feature 98. DEPNDTRN_0. </option>
+<option value="feature_422/main.html"> Feature 422. AMHSVTYP_5. </option>
+<option value="feature_458/main.html"> Feature 458. SNYSTOLE_3. </option>
+<option value="feature_816/main.html"> Feature 816. IMPGOUT_4. </option>
+<option value="feature_825/main.html"> Feature 825. IMPPEOPM_1. </option>
+<option value="feature_34/main.html"> Feature 34. MTHAGLST. </option>
+<option value="feature_50/main.html"> Feature 50. ADPSDAYS. </option>
+<option value="feature_110/main.html"> Feature 110. ABUSEINH_0. </option>
+<option value="feature_194/main.html"> Feature 194. BKOTHOF2_36. </option>
+<option value="feature_209/main.html"> Feature 209. DRIVALD2_1. </option>
+<option value="feature_478/main.html"> Feature 478. SNRLDCSN_3. </option>
+<option value="feature_759/main.html"> Feature 759. DSTCHR30_2. </option>
+<option value="feature_837/main.html"> Feature 837. IMPHHLD_4. </option>
+<option value="feature_990/main.html"> Feature 990. ADPSRELS_3. </option>
+<option value="feature_1020/main.html"> Feature 1020. AMDELT_1. </option>
+<option value="feature_1076/main.html"> Feature 1076. ASDSREL2_1. </option>
+<option value="feature_1610/main.html"> Feature 1610. ANYHLTI2_1. </option>
+<option value="feature_1627/main.html"> Feature 1627. AGE2_14. </option>
+</select>
+</form>
+<div id="FeaturePlot">
+<iframe name="iframe" id="iframe_2" src="" width=1000 height=1000></iframe>
+</div>
+</body>
+</p><h2 id="4">The End</h2><p>
+<script>
+function myFunction(x) {
+    var x = document.getElementById(x);
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+</script>
+</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Feature Selection HitonPC (k=3)
+%
+% Mehmet Ugurbil
+%
+% Unversity of Minnesota
+%
+% 22-Mar-2018
+
+%% Table of AUC Results
+%
+% <html>
+% <body>
+% <button onclick="myFunction('AUCTable')"> Show/Hide </button>
+% <div id="AUCTable">
+% <iframe name="iframe" id="iframe_0" src="auc/main.html" width=1000 height=500></iframe>
+% </div>
+% </body>
+% </html>
+
+%% Table of Features Selected
+%
+% <html>
+% <body>
+% <button onclick="myFunction('FeatureTable')"> Show/Hide </button>
+% <div id="FeatureTable">
+% <iframe name="iframe" id="iframe_1" src="table/main.html" width=1000 height=1500></iframe>
+% </div>
+% </body>
+% </html>
+
+%% Feature Frequency Plots
+%
+% <html>
+% <body>
+% <form name="change">
+% <select name="options_2" onChange="document.getElementById('iframe_2').src = this.options[this.selectedIndex].value">
+% <option value=""> Choose </option>
+% <option value="feature_39/main.html"> Feature 39. K6SCMON. </option>
+% <option value="feature_42/main.html"> Feature 42. WSPDSC2. </option>
+% <option value="feature_66/main.html"> Feature 66. NRCH17_2. </option>
+% <option value="feature_84/main.html"> Feature 84. IRANLAGE_-1. </option>
+% <option value="feature_132/main.html"> Feature 132. ABODIEM_0. </option>
+% <option value="feature_428/main.html"> Feature 428. AMHSVNO_3. </option>
+% <option value="feature_430/main.html"> Feature 430. AMHTXND2_1. </option>
+% <option value="feature_434/main.html"> Feature 434. AMHTXAND_3. </option>
+% <option value="feature_442/main.html"> Feature 442. MHASPTR2_0. </option>
+% <option value="feature_461/main.html"> Feature 461. SNYATTAK_1. </option>
+% <option value="feature_749/main.html"> Feature 749. DSTHOP30_2. </option>
+% <option value="feature_769/main.html"> Feature 769. DSTNGD30_2. </option>
+% <option value="feature_800/main.html"> Feature 800. DSTNGD12_1. </option>
+% <option value="feature_818/main.html"> Feature 818. IMPGOUTM_1. </option>
+% <option value="feature_844/main.html"> Feature 844. IMPRESP_4. </option>
+% <option value="feature_853/main.html"> Feature 853. IMPDYFRQ_1. </option>
+% <option value="feature_858/main.html"> Feature 858. SPDMON_0. </option>
+% <option value="feature_950/main.html"> Feature 950. ADPBINTF_1. </option>
+% <option value="feature_1093/main.html"> Feature 1093. YUHOSPYR_1. </option>
+% <option value="feature_104/main.html"> Feature 104. DPILANAL_0. </option>
+% <option value="feature_238/main.html"> Feature 238. USEALCG_11. </option>
+% <option value="feature_265/main.html"> Feature 265. TXILANAL_0. </option>
+% <option value="feature_1724/main.html"> Feature 1724. JBSTATR2_3. </option>
+% <option value="feature_126/main.html"> Feature 126. ABODINH_0. </option>
+% <option value="feature_205/main.html"> Feature 205. DRIVALC2_3. </option>
+% <option value="feature_986/main.html"> Feature 986. ADPSRELS_-1. </option>
+% <option value="feature_124/main.html"> Feature 124. ABODHAL_0. </option>
+% <option value="feature_314/main.html"> Feature 314. HPDRGTLK_-1. </option>
+% <option value="feature_315/main.html"> Feature 315. HPDRGTLK_1. </option>
+% <option value="feature_760/main.html"> Feature 760. DSTCHR30_3. </option>
+% <option value="feature_823/main.html"> Feature 823. IMPPEOP_4. </option>
+% <option value="feature_1560/main.html"> Feature 1560. ED4FLAG_-1. </option>
+% <option value="feature_88/main.html"> Feature 88. IRSEDAGE_-1. </option>
+% <option value="feature_206/main.html"> Feature 206. DRIVDRG2_1. </option>
+% <option value="feature_410/main.html"> Feature 410. AMHINP2_1. </option>
+% <option value="feature_1009/main.html"> Feature 1009. ADSEEDOC_-1. </option>
+% <option value="feature_830/main.html"> Feature 830. IMPSOC_4. </option>
+% <option value="feature_975/main.html"> Feature 975. ADPSWORK_-1. </option>
+% <option value="feature_134/main.html"> Feature 134. ABODILAL_0. </option>
+% <option value="feature_1018/main.html"> Feature 1018. ADPSYMD_1. </option>
+% <option value="feature_23/main.html"> Feature 23. CRKAGLST. </option>
+% <option value="feature_81/main.html"> Feature 81. IRPCPAGE_-1. </option>
+% <option value="feature_83/main.html"> Feature 83. IRINHAGE_-1. </option>
+% <option value="feature_135/main.html"> Feature 135. ABDILAAL_0. </option>
+% <option value="feature_984/main.html"> Feature 984. ADPSWORK_8. </option>
+% <option value="feature_1559/main.html"> Feature 1559. CADRKDRG_1. </option>
+% <option value="feature_1751/main.html"> Feature 1751. WRKJOBS2_2. </option>
+% <option value="feature_16/main.html"> Feature 16. IRSEDAGE. </option>
+% <option value="feature_44/main.html"> Feature 44. WHODASC3. </option>
+% <option value="feature_98/main.html"> Feature 98. DEPNDTRN_0. </option>
+% <option value="feature_422/main.html"> Feature 422. AMHSVTYP_5. </option>
+% <option value="feature_458/main.html"> Feature 458. SNYSTOLE_3. </option>
+% <option value="feature_816/main.html"> Feature 816. IMPGOUT_4. </option>
+% <option value="feature_825/main.html"> Feature 825. IMPPEOPM_1. </option>
+% <option value="feature_34/main.html"> Feature 34. MTHAGLST. </option>
+% <option value="feature_50/main.html"> Feature 50. ADPSDAYS. </option>
+% <option value="feature_110/main.html"> Feature 110. ABUSEINH_0. </option>
+% <option value="feature_194/main.html"> Feature 194. BKOTHOF2_36. </option>
+% <option value="feature_209/main.html"> Feature 209. DRIVALD2_1. </option>
+% <option value="feature_478/main.html"> Feature 478. SNRLDCSN_3. </option>
+% <option value="feature_759/main.html"> Feature 759. DSTCHR30_2. </option>
+% <option value="feature_837/main.html"> Feature 837. IMPHHLD_4. </option>
+% <option value="feature_990/main.html"> Feature 990. ADPSRELS_3. </option>
+% <option value="feature_1020/main.html"> Feature 1020. AMDELT_1. </option>
+% <option value="feature_1076/main.html"> Feature 1076. ASDSREL2_1. </option>
+% <option value="feature_1610/main.html"> Feature 1610. ANYHLTI2_1. </option>
+% <option value="feature_1627/main.html"> Feature 1627. AGE2_14. </option>
+% </select>
+% </form>
+% <div id="FeaturePlot">
+% <iframe name="iframe" id="iframe_2" src="" width=1000 height=1000></iframe>
+% </div>
+% </body>
+% </html>
+
+%% The End
+%
+% <html>
+% <script>
+% function myFunction(x) {
+%     var x = document.getElementById(x);
+%     if (x.style.display === "none") {
+%         x.style.display = "block";
+%     } else {
+%         x.style.display = "none";
+%     }
+% }
+% </script>
+% </html>
+
+##### SOURCE END #####
+--></body></html>

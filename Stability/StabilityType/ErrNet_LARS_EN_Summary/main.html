@@ -1,0 +1,149 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>TIE-Net-Weak2. Summary. Elastic Net.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>TIE-Net-Weak2. Summary. Elastic Net.</h1><pre class="codeinput">summary_stability_type(<span class="string">"ErrNet"</span>, 3)
+</pre><pre class="codeoutput">TOTAL COUNTS: Total=1327, Strong=23, Weak=1300, Irrelevant=4
+
+
+Figure 133. Stability as a predictor for Strong Features for Elastic Net on TIE-Net-Weak2.
+___________________________________________________________________________________________
+
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <pre class="codeoutput">Table 133. Breakdown of Stability by Feature Type for Elastic Net.
+___________________________________________________________________
+
+(1) Number Features Repeat (n_fs_rep): number of unique features that were selected in a repeat
+(2) Number Features Fold (n_fs_fold): number of unique features that were selected in a fold
+(3) Feature Stability ~ Feature Selection Frequency
+
+    Sample_Size         All_n_fs_rep               All_n_fs_fold            All_Stability   
+    ___________    _______________________    _______________________    ___________________
+
+    '      50 '    '  73.940 +/-   1.151 '    '  12.778 +/-   0.159 '    ' 0.010 +/- 0.028 '
+    '     100 '    ' 208.080 +/-   4.502 '    '  36.364 +/-   0.767 '    ' 0.027 +/- 0.041 '
+    '     200 '    ' 160.120 +/-   2.470 '    '  30.690 +/-   0.371 '    ' 0.023 +/- 0.050 '
+    '     300 '    ' 287.140 +/-   5.518 '    '  45.600 +/-   0.794 '    ' 0.034 +/- 0.054 '
+    '     400 '    ' 280.160 +/-   5.547 '    '  45.824 +/-   0.731 '    ' 0.035 +/- 0.060 '
+    '     500 '    ' 179.100 +/-   3.530 '    '  36.978 +/-   0.788 '    ' 0.028 +/- 0.063 '
+    '    1000 '    ' 119.920 +/-   1.012 '    '  31.422 +/-   0.201 '    ' 0.024 +/- 0.079 '
+    '    2000 '    ' 108.340 +/-   0.661 '    '  34.990 +/-   0.182 '    ' 0.026 +/- 0.095 '
+    '    5000 '    ' 118.660 +/-   0.732 '    '  40.558 +/-   0.182 '    ' 0.031 +/- 0.111 '
+    '   10000 '    ' 106.980 +/-   0.607 '    '  38.846 +/-   0.164 '    ' 0.029 +/- 0.118 '
+    '  100000 '    '  89.000 +/-   0.295 '    '  35.494 +/-   0.070 '    ' 0.027 +/- 0.117 '
+
+    Sample_Size       Strong_n_fs_rep         Strong_n_fs_fold        Strong_Stability  
+    ___________    _____________________    _____________________    ___________________
+
+    '      50 '    '  9.740 +/-  0.100 '    '  3.370 +/-  0.034 '    ' 0.147 +/- 0.141 '
+    '     100 '    ' 15.120 +/-  0.110 '    '  5.866 +/-  0.052 '    ' 0.255 +/- 0.150 '
+    '     200 '    ' 16.720 +/-  0.083 '    '  7.232 +/-  0.045 '    ' 0.314 +/- 0.191 '
+    '     300 '    ' 20.060 +/-  0.077 '    '  8.178 +/-  0.049 '    ' 0.356 +/- 0.205 '
+    '     400 '    ' 19.460 +/-  0.079 '    '  9.478 +/-  0.064 '    ' 0.412 +/- 0.195 '
+    '     500 '    ' 19.420 +/-  0.073 '    '  9.780 +/-  0.055 '    ' 0.425 +/- 0.226 '
+    '    1000 '    ' 22.380 +/-  0.039 '    ' 13.210 +/-  0.068 '    ' 0.574 +/- 0.149 '
+    '    2000 '    ' 22.680 +/-  0.026 '    ' 16.246 +/-  0.055 '    ' 0.706 +/- 0.116 '
+    '    5000 '    ' 23.000 +/-  0.000 '    ' 19.192 +/-  0.040 '    ' 0.834 +/- 0.075 '
+    '   10000 '    ' 23.000 +/-  0.000 '    ' 20.596 +/-  0.033 '    ' 0.895 +/- 0.058 '
+    '  100000 '    ' 23.000 +/-  0.000 '    ' 20.322 +/-  0.029 '    ' 0.884 +/- 0.100 '
+
+    Sample_Size         Weak_n_fs_rep             Weak_n_fs_fold           Weak_Stability   
+    ___________    _______________________    _______________________    ___________________
+
+    '      50 '    '  63.180 +/-   1.088 '    '   9.186 +/-   0.143 '    ' 0.007 +/- 0.009 '
+    '     100 '    ' 191.140 +/-   4.440 '    '  30.056 +/-   0.736 '    ' 0.023 +/- 0.019 '
+    '     200 '    ' 141.600 +/-   2.439 '    '  23.032 +/-   0.352 '    ' 0.018 +/- 0.020 '
+    '     300 '    ' 265.280 +/-   5.482 '    '  37.078 +/-   0.772 '    ' 0.029 +/- 0.019 '
+    '     400 '    ' 259.200 +/-   5.500 '    '  36.068 +/-   0.683 '    ' 0.028 +/- 0.021 '
+    '     500 '    ' 158.160 +/-   3.492 '    '  26.836 +/-   0.768 '    ' 0.021 +/- 0.018 '
+    '    1000 '    '  96.480 +/-   1.002 '    '  18.036 +/-   0.174 '    ' 0.014 +/- 0.022 '
+    '    2000 '    '  84.500 +/-   0.649 '    '  18.552 +/-   0.159 '    ' 0.014 +/- 0.027 '
+    '    5000 '    '  94.500 +/-   0.727 '    '  21.082 +/-   0.164 '    ' 0.016 +/- 0.030 '
+    '   10000 '    '  82.820 +/-   0.600 '    '  17.910 +/-   0.142 '    ' 0.014 +/- 0.024 '
+    '  100000 '    '  64.660 +/-   0.295 '    '  14.810 +/-   0.073 '    ' 0.011 +/- 0.021 '
+
+    Sample_Size    Irrelevant_n_fs_rep    Irrelevant_n_fs_fold    Irrelevant_Stability
+    ___________    ___________________    ____________________    ____________________
+
+    '      50 '    ' 1.020 +/- 0.020 '    ' 0.222 +/- 0.005 '     ' 0.056 +/- 0.031 ' 
+    '     100 '    ' 1.820 +/- 0.022 '    ' 0.442 +/- 0.008 '     ' 0.110 +/- 0.022 ' 
+    '     200 '    ' 1.800 +/- 0.024 '    ' 0.426 +/- 0.008 '     ' 0.106 +/- 0.013 ' 
+    '     300 '    ' 1.800 +/- 0.021 '    ' 0.344 +/- 0.006 '     ' 0.086 +/- 0.019 ' 
+    '     400 '    ' 1.500 +/- 0.023 '    ' 0.278 +/- 0.005 '     ' 0.069 +/- 0.028 ' 
+    '     500 '    ' 1.520 +/- 0.028 '    ' 0.362 +/- 0.010 '     ' 0.090 +/- 0.017 ' 
+    '    1000 '    ' 1.060 +/- 0.020 '    ' 0.176 +/- 0.004 '     ' 0.044 +/- 0.008 ' 
+    '    2000 '    ' 1.160 +/- 0.017 '    ' 0.192 +/- 0.003 '     ' 0.048 +/- 0.014 ' 
+    '    5000 '    ' 1.160 +/- 0.017 '    ' 0.284 +/- 0.005 '     ' 0.071 +/- 0.011 ' 
+    '   10000 '    ' 1.160 +/- 0.017 '    ' 0.340 +/- 0.007 '     ' 0.085 +/- 0.047 ' 
+    '  100000 '    ' 1.340 +/- 0.020 '    ' 0.362 +/- 0.007 '     ' 0.091 +/- 0.022 ' 
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% TIE-Net-Weak2. Summary. Elastic Net.
+summary_stability_type("ErrNet", 3)
+
+##### SOURCE END #####
+--></body></html>

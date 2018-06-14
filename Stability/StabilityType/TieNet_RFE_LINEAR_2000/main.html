@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Feature Stability of SVM-RFE on TIE-Net with 2000 samples.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Feature Stability of SVM-RFE on TIE-Net with 2000 samples.</h1><pre class="codeinput">unit_stability_type(2000, 2, <span class="string">"TieNet"</span>)
+</pre><pre class="codeoutput">Figure 21. ROC for Stability of Strong Features AUC=0.958. Sample Size: 2000, RFE LINEAR.
+__________________________________________________________________________________________
+
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <pre class="codeoutput">Table 21. Feature Stability of RFE LINEAR on TieNet with 2000 samples.
+_______________________________________________________________________
+
+SELECTED COUNTS: Strong=23, Weak=26, Irrelevant=4
+TOTAL COUNTS:    Strong=23, Weak=26, Irrelevant=4
+
+
+    Feature_Number    Stability        Type        Path_Length    N_MBS    Equivalence
+    ______________    _________    ____________    ___________    _____    ___________
+
+          22          ' 0.856 '    '  STRONG  '          2           0         21     
+          23          ' 0.824 '    '  STRONG  '          3           0         21     
+          21          ' 0.816 '    '  STRONG  '          1           0         21     
+          19          ' 0.494 '    '  STRONG  '          2           0         18     
+          20          ' 0.494 '    '  STRONG  '          3           0         18     
+          18          ' 0.492 '    '  STRONG  '          1           0         18     
+           7          ' 0.210 '    '  STRONG  '          1           0          7     
+          11          ' 0.208 '    '  STRONG  '          4           0          7     
+          28          ' 0.208 '    '   weak   '          5           0         28     
+           9          ' 0.206 '    '  STRONG  '          3           0          7     
+           8          ' 0.202 '    '  STRONG  '          2           0          7     
+          10          ' 0.202 '    '  STRONG  '          4           0          7     
+          39          ' 0.192 '    '   weak   '          4           0         39     
+           1          ' 0.190 '    '  STRONG  '          1           0          1     
+           4          ' 0.184 '    '  STRONG  '          4           0          1     
+           3          ' 0.180 '    '  STRONG  '          4           0          1     
+           5          ' 0.180 '    '  STRONG  '          3           0          1     
+           2          ' 0.178 '    '  STRONG  '          2           0          1     
+           6          ' 0.178 '    '  STRONG  '          3           0          1     
+          14          ' 0.170 '    '  STRONG  '          3         270         12     
+          16          ' 0.170 '    '  STRONG  '          2         540         12     
+          15          ' 0.168 '    '  STRONG  '          3         810         12     
+          17          ' 0.166 '    '  STRONG  '          4        1080         12     
+          13          ' 0.164 '    '  STRONG  '          2        1350         12     
+          40          ' 0.164 '    '   weak   '          3        1350         40     
+          12          ' 0.154 '    '  STRONG  '          1        1620         12     
+          38          ' 0.068 '    '   weak   '          5        1620         38     
+          51          ' 0.044 '    '   weak   '          4        1620         51     
+          31          ' 0.032 '    '   weak   '          9        1620         31     
+          35          ' 0.032 '    '   weak   '          7        1620         35     
+          37          ' 0.032 '    '   weak   '          6        1620         37     
+          32          ' 0.026 '    '   weak   '          8        1620         32     
+          27          ' 0.022 '    '   weak   '          6        1620         27     
+          41          ' 0.022 '    '   weak   '          3        1620         41     
+          26          ' 0.018 '    '   weak   '          5        1620         26     
+          29          ' 0.018 '    '   weak   '         11        1620         29     
+          30          ' 0.018 '    '   weak   '         10        1620         30     
+          36          ' 0.018 '    '   weak   '          8        1620         36     
+          45          ' 0.018 '    '   weak   '          7        1620         45     
+          34          ' 0.016 '    '   weak   '          8        1620         34     
+          50          ' 0.016 '    '   weak   '          5        1620         50     
+          24          ' 0.014 '    '   weak   '          4        1620         24     
+          25          ' 0.014 '    '   weak   '          6        1620         25     
+          33          ' 0.014 '    '   weak   '          8        1620         33     
+          42          ' 0.014 '    'irrelevant'        Inf        1620         42     
+          43          ' 0.014 '    'irrelevant'        Inf        1620         43     
+          44          ' 0.014 '    'irrelevant'        Inf        1620         44     
+          46          ' 0.014 '    '   weak   '          7        1620         46     
+          47          ' 0.014 '    'irrelevant'        Inf        1620         47     
+          48          ' 0.014 '    '   weak   '          6        1620         48     
+          49          ' 0.014 '    '   weak   '          6        1620         49     
+          52          ' 0.014 '    '   weak   '          4        1620         52     
+          53          ' 0.014 '    '   weak   '          5        1620         53     
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Feature Stability of SVM-RFE on TIE-Net with 2000 samples.
+unit_stability_type(2000, 2, "TieNet")
+
+##### SOURCE END #####
+--></body></html>

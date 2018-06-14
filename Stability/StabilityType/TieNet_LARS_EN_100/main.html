@@ -1,0 +1,143 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Feature Stability of Elastic Net on TIE-Net with 100 samples.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Feature Stability of Elastic Net on TIE-Net with 100 samples.</h1><pre class="codeinput">unit_stability_type(100, 3, <span class="string">"TieNet"</span>)
+</pre><pre class="codeoutput">Figure 27. ROC for Stability of Strong Features AUC=0.970. Sample Size: 100, LARS EN.
+______________________________________________________________________________________
+
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <pre class="codeoutput">Table 27. Feature Stability of LARS EN on TieNet with 100 samples.
+___________________________________________________________________
+
+SELECTED COUNTS: Strong=23, Weak=26, Irrelevant=4
+TOTAL COUNTS:    Strong=23, Weak=26, Irrelevant=4
+
+
+    Feature_Number    Stability        Type        Path_Length    N_MBS    Equivalence
+    ______________    _________    ____________    ___________    _____    ___________
+
+          21          ' 0.708 '    '  STRONG  '          1           0         21     
+          18          ' 0.548 '    '  STRONG  '          1           0         18     
+          22          ' 0.454 '    '  STRONG  '          2           0         21     
+          23          ' 0.404 '    '  STRONG  '          3           0         21     
+          19          ' 0.388 '    '  STRONG  '          2           0         18     
+          20          ' 0.348 '    '  STRONG  '          3           0         18     
+           1          ' 0.326 '    '  STRONG  '          1           0          1     
+           7          ' 0.302 '    '  STRONG  '          1           0          7     
+          12          ' 0.272 '    '  STRONG  '          1           9         12     
+           8          ' 0.264 '    '  STRONG  '          2          18          7     
+           2          ' 0.254 '    '  STRONG  '          2          36          1     
+          13          ' 0.234 '    '  STRONG  '          2          72         12     
+           3          ' 0.232 '    '  STRONG  '          4         108          1     
+           9          ' 0.230 '    '  STRONG  '          3         162          7     
+          39          ' 0.228 '    '   weak   '          4         162         39     
+          38          ' 0.224 '    '   weak   '          5         162         38     
+           4          ' 0.216 '    '  STRONG  '          4         216          1     
+          15          ' 0.212 '    '  STRONG  '          3         324         12     
+          10          ' 0.210 '    '  STRONG  '          4         432          7     
+          14          ' 0.210 '    '  STRONG  '          3         576         12     
+          11          ' 0.206 '    '  STRONG  '          4         720          7     
+           5          ' 0.204 '    '  STRONG  '          3         900          1     
+           6          ' 0.198 '    '  STRONG  '          3        1080          1     
+          35          ' 0.194 '    '   weak   '          7        1080         35     
+          16          ' 0.192 '    '  STRONG  '          2        1350         12     
+          40          ' 0.188 '    '   weak   '          3        1350         40     
+          17          ' 0.178 '    '  STRONG  '          4        1620         12     
+          24          ' 0.172 '    '   weak   '          4        1620         24     
+          27          ' 0.172 '    '   weak   '          6        1620         27     
+          29          ' 0.170 '    '   weak   '         11        1620         29     
+          42          ' 0.162 '    'irrelevant'        Inf        1620         42     
+          51          ' 0.156 '    '   weak   '          4        1620         51     
+          28          ' 0.154 '    '   weak   '          5        1620         28     
+          33          ' 0.152 '    '   weak   '          8        1620         33     
+          34          ' 0.152 '    '   weak   '          8        1620         34     
+          30          ' 0.150 '    '   weak   '         10        1620         30     
+          43          ' 0.146 '    'irrelevant'        Inf        1620         43     
+          49          ' 0.144 '    '   weak   '          6        1620         49     
+          37          ' 0.142 '    '   weak   '          6        1620         37     
+          36          ' 0.140 '    '   weak   '          8        1620         36     
+          32          ' 0.138 '    '   weak   '          8        1620         32     
+          44          ' 0.136 '    'irrelevant'        Inf        1620         44     
+          41          ' 0.128 '    '   weak   '          3        1620         41     
+          47          ' 0.118 '    'irrelevant'        Inf        1620         47     
+          26          ' 0.116 '    '   weak   '          5        1620         26     
+          46          ' 0.112 '    '   weak   '          7        1620         46     
+          50          ' 0.110 '    '   weak   '          5        1620         50     
+          52          ' 0.096 '    '   weak   '          4        1620         52     
+          48          ' 0.092 '    '   weak   '          6        1620         48     
+          53          ' 0.090 '    '   weak   '          5        1620         53     
+          45          ' 0.082 '    '   weak   '          7        1620         45     
+          25          ' 0.080 '    '   weak   '          6        1620         25     
+          31          ' 0.072 '    '   weak   '          9        1620         31     
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Feature Stability of Elastic Net on TIE-Net with 100 samples.
+unit_stability_type(100, 3, "TieNet")
+
+##### SOURCE END #####
+--></body></html>

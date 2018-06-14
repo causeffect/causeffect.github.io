@@ -1,0 +1,269 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Stable Variable Experiments on TIE-Net with SVM-RFE.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Stable Variable Experiments on TIE-Net with SVM-RFE.</h1><pre class="codeinput">summary_stable_vars(<span class="string">"TieNet"</span>, 2)
+</pre><pre class="codeoutput">Figure 3. SVM-RFE Model Generalizatbility.
+___________________________________________
+
+</pre><pre class="codeoutput">Figure 4. SVM-RFE Feature Generalizability.
+____________________________________________
+
+</pre><pre class="codeoutput">Table 12. Stability Cut Off Performance. Sample Size = 50. SVM-RFE.
+____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.757 +/- 0.001 '        ' 0.784 +/- 0.000 '         ' 25.3 +/-  5.5 '              3       
+     '&gt;=10%'      ' 0.755 +/- 0.001 '        ' 0.784 +/- 0.000 '         ' 25.3 +/-  5.5 '              3       
+     '&gt;=20%'      ' 0.748 +/- 0.001 '        ' 0.769 +/- 0.001 '         ' 17.3 +/-  5.2 '              3       
+     '&gt;=30%'      ' 0.729 +/- 0.002 '        ' 0.735 +/- 0.002 '         '  8.0 +/-  3.8 '              3       
+     '&gt;=40%'      ' 0.729 +/- 0.002 '        ' 0.735 +/- 0.002 '         '  8.0 +/-  3.8 '              3       
+     '&gt;=50%'      ' 0.735 +/- 0.002 '        ' 0.738 +/- 0.002 '         ' 19.0 +/-  0.0 '              1       
+     '&gt;=60%'      ' 0.737 +/- 0.002 '        ' 0.737 +/- 0.002 '         ' 11.0 +/-  0.0 '              1       
+     '&gt;=70%'      ' 0.745 +/- 0.002 '        ' 0.745 +/- 0.002 '         '  5.0 +/-  0.0 '              1       
+     '&gt;=80%'      ' 0.731 +/- 0.002 '        ' 0.731 +/- 0.002 '         '  3.0 +/-  0.0 '              1       
+     '&gt;=90%'      ' 0.722 +/- 0.002 '        ' 0.722 +/- 0.002 '         '  2.0 +/-  0.0 '              1       
+
+Table 13. Stability Cut Off Performance. Sample Size = 100. SVM-RFE.
+_____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.771 +/- 0.001 '        ' 0.786 +/- 0.000 '         ' 19.0 +/-  6.1 '              3       
+     '&gt;=10%'      ' 0.772 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 19.0 +/-  6.1 '              3       
+     '&gt;=20%'      ' 0.769 +/- 0.001 '        ' 0.780 +/- 0.000 '         ' 12.7 +/-  5.0 '              3       
+     '&gt;=30%'      ' 0.765 +/- 0.001 '        ' 0.769 +/- 0.001 '         '  6.3 +/-  2.8 '              3       
+     '&gt;=40%'      ' 0.765 +/- 0.001 '        ' 0.769 +/- 0.001 '         '  6.3 +/-  2.8 '              3       
+     '&gt;=50%'      ' 0.764 +/- 0.001 '        ' 0.765 +/- 0.001 '         '  4.0 +/-  1.7 '              3       
+     '&gt;=60%'      ' 0.761 +/- 0.001 '        ' 0.761 +/- 0.001 '         '  3.5 +/-  1.8 '              2       
+     '&gt;=70%'      ' 0.767 +/- 0.001 '        ' 0.767 +/- 0.001 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=80%'      ' 0.770 +/- 0.001 '        ' 0.770 +/- 0.001 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=90%'      ' 0.766 +/- 0.001 '        ' 0.766 +/- 0.001 '         '  1.0 +/-  0.0 '              1       
+
+Table 14. Stability Cut Off Performance. Sample Size = 200. SVM-RFE.
+_____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.784 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.3 +/-  4.2 '              3       
+     '&gt;=10%'      ' 0.783 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.3 +/-  4.2 '              3       
+     '&gt;=20%'      ' 0.784 +/- 0.000 '        ' 0.786 +/- 0.000 '         '  7.0 +/-  2.3 '              3       
+     '&gt;=30%'      ' 0.783 +/- 0.000 '        ' 0.784 +/- 0.000 '         '  6.0 +/-  2.0 '              3       
+     '&gt;=40%'      ' 0.783 +/- 0.000 '        ' 0.784 +/- 0.000 '         '  6.0 +/-  2.0 '              3       
+     '&gt;=50%'      ' 0.781 +/- 0.000 '        ' 0.781 +/- 0.000 '         '  5.0 +/-  1.5 '              3       
+     '&gt;=60%'      ' 0.780 +/- 0.000 '        ' 0.780 +/- 0.000 '         '  3.7 +/-  1.0 '              3       
+     '&gt;=70%'      ' 0.780 +/- 0.000 '        ' 0.780 +/- 0.000 '         '  3.3 +/-  0.8 '              3       
+     '&gt;=80%'      ' 0.780 +/- 0.000 '        ' 0.780 +/- 0.000 '         '  1.3 +/-  0.2 '              3       
+     '&gt;=90%'      ' 0.777 +/- 0.001 '        ' 0.777 +/- 0.001 '         '  1.0 +/-  0.0 '              2       
+
+Table 15. Stability Cut Off Performance. Sample Size = 300. SVM-RFE.
+_____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.785 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 20.0 +/-  7.5 '              3       
+     '&gt;=10%'      ' 0.784 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 20.0 +/-  7.5 '              3       
+     '&gt;=20%'      ' 0.787 +/- 0.000 '        ' 0.788 +/- 0.000 '         ' 16.3 +/-  6.0 '              3       
+     '&gt;=30%'      ' 0.785 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 10.3 +/-  4.5 '              3       
+     '&gt;=40%'      ' 0.785 +/- 0.000 '        ' 0.786 +/- 0.000 '         ' 10.3 +/-  4.5 '              3       
+     '&gt;=50%'      ' 0.784 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  8.7 +/-  3.8 '              3       
+     '&gt;=60%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  7.3 +/-  3.4 '              3       
+     '&gt;=70%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  3.0 +/-  0.9 '              3       
+     '&gt;=80%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  3.0 +/-  1.4 '              2       
+     '&gt;=90%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  1.5 +/-  0.4 '              2       
+
+Table 16. Stability Cut Off Performance. Sample Size = 400. SVM-RFE.
+_____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.783 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 21.3 +/-  5.4 '              3       
+     '&gt;=10%'      ' 0.783 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 21.3 +/-  5.4 '              3       
+     '&gt;=20%'      ' 0.784 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 15.3 +/-  5.7 '              3       
+     '&gt;=30%'      ' 0.783 +/- 0.000 '        ' 0.784 +/- 0.000 '         '  8.0 +/-  3.2 '              3       
+     '&gt;=40%'      ' 0.784 +/- 0.000 '        ' 0.784 +/- 0.000 '         '  8.0 +/-  3.2 '              3       
+     '&gt;=50%'      ' 0.783 +/- 0.000 '        ' 0.783 +/- 0.000 '         '  6.0 +/-  2.3 '              3       
+     '&gt;=60%'      ' 0.782 +/- 0.000 '        ' 0.782 +/- 0.000 '         '  5.3 +/-  2.2 '              3       
+     '&gt;=70%'      ' 0.782 +/- 0.000 '        ' 0.782 +/- 0.000 '         '  6.0 +/-  2.8 '              2       
+     '&gt;=80%'      ' 0.783 +/- 0.000 '        ' 0.783 +/- 0.000 '         '  3.5 +/-  1.1 '              2       
+     '&gt;=90%'      ' 0.783 +/- 0.000 '        ' 0.783 +/- 0.000 '         '  2.5 +/-  1.1 '              2       
+
+Table 17. Stability Cut Off Performance. Sample Size = 500. SVM-RFE.
+_____________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.786 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 12.0 +/-  4.6 '              3       
+     '&gt;=10%'      ' 0.786 +/- 0.000 '        ' 0.791 +/- 0.000 '         ' 12.0 +/-  4.6 '              3       
+     '&gt;=20%'      ' 0.787 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.7 +/-  4.1 '              3       
+     '&gt;=30%'      ' 0.787 +/- 0.000 '        ' 0.788 +/- 0.000 '         '  6.7 +/-  2.4 '              3       
+     '&gt;=40%'      ' 0.786 +/- 0.000 '        ' 0.788 +/- 0.000 '         '  6.7 +/-  2.4 '              3       
+     '&gt;=50%'      ' 0.786 +/- 0.000 '        ' 0.787 +/- 0.000 '         '  3.3 +/-  0.8 '              3       
+     '&gt;=60%'      ' 0.785 +/- 0.000 '        ' 0.785 +/- 0.000 '         '  3.3 +/-  0.8 '              3       
+     '&gt;=70%'      ' 0.786 +/- 0.000 '        ' 0.786 +/- 0.000 '         '  2.7 +/-  0.7 '              3       
+     '&gt;=80%'      ' 0.786 +/- 0.000 '        ' 0.786 +/- 0.000 '         '  2.0 +/-  0.0 '              1       
+     '&gt;=90%'      ' 0.784 +/- 0.000 '        ' 0.784 +/- 0.000 '         '  2.0 +/-  0.0 '              1       
+
+Table 18. Stability Cut Off Performance. Sample Size = 1000. SVM-RFE.
+______________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.786 +/- 0.000 '        ' 0.794 +/- 0.000 '         ' 25.3 +/-  5.9 '              3       
+     '&gt;=10%'      ' 0.787 +/- 0.000 '        ' 0.794 +/- 0.000 '         ' 25.3 +/-  5.9 '              3       
+     '&gt;=20%'      ' 0.789 +/- 0.000 '        ' 0.792 +/- 0.000 '         ' 18.7 +/-  5.9 '              3       
+     '&gt;=30%'      ' 0.787 +/- 0.000 '        ' 0.788 +/- 0.000 '         ' 13.3 +/-  5.1 '              3       
+     '&gt;=40%'      ' 0.787 +/- 0.000 '        ' 0.788 +/- 0.000 '         ' 13.3 +/-  5.1 '              3       
+     '&gt;=50%'      ' 0.787 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 13.0 +/-  4.9 '              3       
+     '&gt;=60%'      ' 0.786 +/- 0.000 '        ' 0.787 +/- 0.000 '         ' 11.7 +/-  4.5 '              3       
+     '&gt;=70%'      ' 0.787 +/- 0.000 '        ' 0.787 +/- 0.000 '         '  7.3 +/-  3.1 '              3       
+     '&gt;=80%'      ' 0.786 +/- 0.000 '        ' 0.787 +/- 0.000 '         '  7.0 +/-  3.5 '              2       
+     '&gt;=90%'      ' 0.786 +/- 0.000 '        ' 0.786 +/- 0.000 '         '  2.0 +/-  0.0 '              2       
+
+Table 19. Stability Cut Off Performance. Sample Size = 2000. SVM-RFE.
+______________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.792 +/- 0.000 '        ' 0.796 +/- 0.000 '         ' 22.0 +/-  4.4 '              3       
+     '&gt;=10%'      ' 0.792 +/- 0.000 '        ' 0.796 +/- 0.000 '         ' 22.0 +/-  4.4 '              3       
+     '&gt;=20%'      ' 0.792 +/- 0.000 '        ' 0.794 +/- 0.000 '         ' 19.3 +/-  4.5 '              3       
+     '&gt;=30%'      ' 0.789 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 13.0 +/-  4.3 '              3       
+     '&gt;=40%'      ' 0.790 +/- 0.000 '        ' 0.790 +/- 0.000 '         ' 13.0 +/-  4.3 '              3       
+     '&gt;=50%'      ' 0.789 +/- 0.000 '        ' 0.789 +/- 0.000 '         ' 10.0 +/-  2.9 '              3       
+     '&gt;=60%'      ' 0.788 +/- 0.000 '        ' 0.788 +/- 0.000 '         '  8.0 +/-  2.1 '              3       
+     '&gt;=70%'      ' 0.787 +/- 0.000 '        ' 0.787 +/- 0.000 '         '  6.3 +/-  2.2 '              3       
+     '&gt;=80%'      ' 0.787 +/- 0.000 '        ' 0.787 +/- 0.000 '         '  5.0 +/-  1.5 '              3       
+     '&gt;=90%'      ' 0.786 +/- 0.000 '        ' 0.786 +/- 0.000 '         '  3.7 +/-  1.3 '              3       
+
+Table 20. Stability Cut Off Performance. Sample Size = 5000. SVM-RFE.
+______________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.794 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 30.0 +/-  5.2 '              3       
+     '&gt;=10%'      ' 0.794 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 30.0 +/-  5.2 '              3       
+     '&gt;=20%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 25.3 +/-  5.4 '              3       
+     '&gt;=30%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 21.7 +/-  5.2 '              3       
+     '&gt;=40%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 21.7 +/-  5.2 '              3       
+     '&gt;=50%'      ' 0.795 +/- 0.000 '        ' 0.796 +/- 0.000 '         ' 19.7 +/-  5.2 '              3       
+     '&gt;=60%'      ' 0.794 +/- 0.000 '        ' 0.795 +/- 0.000 '         ' 17.0 +/-  4.3 '              3       
+     '&gt;=70%'      ' 0.793 +/- 0.000 '        ' 0.793 +/- 0.000 '         ' 14.3 +/-  4.1 '              3       
+     '&gt;=80%'      ' 0.791 +/- 0.000 '        ' 0.791 +/- 0.000 '         '  7.3 +/-  2.0 '              3       
+     '&gt;=90%'      ' 0.789 +/- 0.000 '        ' 0.790 +/- 0.000 '         '  5.0 +/-  1.2 '              3       
+
+Table 21. Stability Cut Off Performance. Sample Size = 10000. SVM-RFE.
+_______________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  37.0 +/-   5.5 '             3       
+     '&gt;=10%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  37.0 +/-   5.5 '             3       
+     '&gt;=20%'      ' 0.796 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  24.0 +/-   4.1 '             3       
+     '&gt;=30%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  21.0 +/-   4.3 '             3       
+     '&gt;=40%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  21.0 +/-   4.3 '             3       
+     '&gt;=50%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  18.7 +/-   4.8 '             3       
+     '&gt;=60%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  18.0 +/-   4.9 '             3       
+     '&gt;=70%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  26.0 +/-   0.0 '             2       
+     '&gt;=80%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '        '  21.5 +/-   3.2 '             2       
+     '&gt;=90%'      ' 0.796 +/- 0.000 '        ' 0.796 +/- 0.000 '        '  15.0 +/-   7.1 '             2       
+
+Table 22. Stability Cut Off Performance. Sample Size = 100000. SVM-RFE.
+________________________________________________________________________
+
+    Stability    Model_Generalizability    Feature_Generalizability    Number_Stable_Features    Number_Non_Zero
+    _________    ______________________    ________________________    ______________________    _______________
+
+     '&gt;=00%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 29.3 +/-  2.9 '              3       
+     '&gt;=10%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 29.3 +/-  2.9 '              3       
+     '&gt;=20%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 26.0 +/-  3.2 '              3       
+     '&gt;=30%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 21.0 +/-  5.0 '              3       
+     '&gt;=40%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 21.0 +/-  5.0 '              3       
+     '&gt;=50%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 19.7 +/-  4.8 '              3       
+     '&gt;=60%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 19.0 +/-  5.2 '              3       
+     '&gt;=70%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 18.3 +/-  5.0 '              3       
+     '&gt;=80%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 22.5 +/-  3.2 '              2       
+     '&gt;=90%'      ' 0.797 +/- 0.000 '        ' 0.797 +/- 0.000 '         ' 17.5 +/-  5.3 '              2       
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Stable Variable Experiments on TIE-Net with SVM-RFE.
+summary_stable_vars("TieNet", 2)
+
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,125 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Feature Stability of SVM-RFE on TIE-Net-Reduced1 with 10000 samples.</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-13"><meta name="DC.source" content="main.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Feature Stability of SVM-RFE on TIE-Net-Reduced1 with 10000 samples.</h1><pre class="codeinput">unit_stability_type(10000, 2, <span class="string">"RedNet"</span>)
+</pre><pre class="codeoutput">Figure 59. ROC for Stability of Strong Features AUC=1.000. Sample Size: 10000, RFE LINEAR.
+___________________________________________________________________________________________
+
+</pre><img vspace="5" hspace="5" src="main_01.png" alt=""> <pre class="codeoutput">Table 59. Feature Stability of RFE LINEAR on RedNet with 10000 samples.
+________________________________________________________________________
+
+SELECTED COUNTS: Strong=5, Weak=26, Irrelevant=4
+TOTAL COUNTS:    Strong=5, Weak=26, Irrelevant=4
+
+
+    Feature_Number    Stability        Type        Path_Length    N_MBS    Equivalence
+    ______________    _________    ____________    ___________    _____    ___________
+
+          21          ' 1.000 '    '  STRONG  '          1          0          21     
+          12          ' 0.960 '    '  STRONG  '          1          0          12     
+           1          ' 0.952 '    '  STRONG  '          1          0           1     
+           7          ' 0.934 '    '  STRONG  '          1          0           7     
+          18          ' 0.800 '    '  STRONG  '          1          1          18     
+          39          ' 0.728 '    '   weak   '          4          1          39     
+          28          ' 0.720 '    '   weak   '          5          1          28     
+          40          ' 0.638 '    '   weak   '          3          1          40     
+          41          ' 0.530 '    '   weak   '          3          1          41     
+          38          ' 0.108 '    '   weak   '          5          1          38     
+          26          ' 0.102 '    '   weak   '          5          1          26     
+          27          ' 0.082 '    '   weak   '          6          1          27     
+          32          ' 0.078 '    '   weak   '          8          1          32     
+          51          ' 0.072 '    '   weak   '          4          1          51     
+          35          ' 0.058 '    '   weak   '          7          1          35     
+          31          ' 0.056 '    '   weak   '          9          1          31     
+          33          ' 0.048 '    '   weak   '          8          1          33     
+          37          ' 0.038 '    '   weak   '          6          1          37     
+          45          ' 0.026 '    '   weak   '          7          1          45     
+          48          ' 0.026 '    '   weak   '          6          1          48     
+          47          ' 0.024 '    'irrelevant'        Inf          1          47     
+          50          ' 0.024 '    '   weak   '          5          1          50     
+          30          ' 0.022 '    '   weak   '         10          1          30     
+          43          ' 0.020 '    'irrelevant'        Inf          1          43     
+          49          ' 0.020 '    '   weak   '          6          1          49     
+          36          ' 0.018 '    '   weak   '          8          1          36     
+          44          ' 0.018 '    'irrelevant'        Inf          1          44     
+          52          ' 0.018 '    '   weak   '          4          1          52     
+          24          ' 0.014 '    '   weak   '          4          1          24     
+          46          ' 0.014 '    '   weak   '          7          1          46     
+          29          ' 0.012 '    '   weak   '         11          1          29     
+          34          ' 0.012 '    '   weak   '          8          1          34     
+          25          ' 0.010 '    '   weak   '          6          1          25     
+          42          ' 0.010 '    'irrelevant'        Inf          1          42     
+          53          ' 0.010 '    '   weak   '          5          1          53     
+
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Feature Stability of SVM-RFE on TIE-Net-Reduced1 with 10000 samples.
+unit_stability_type(10000, 2, "RedNet")
+
+##### SOURCE END #####
+--></body></html>
