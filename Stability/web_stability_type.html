@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>Feature Stability</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-06-05"><meta name="DC.source" content="web_stability_type.m"><style type="text/css">
+      --><title>Feature Stability</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-07-02"><meta name="DC.source" content="web_stability_type.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>Feature Stability</h1><!--introduction--><p>Mehmet Ugurbil</p><p>Unversity of Minnesota</p><p>05-Jun-2018</p><p><a href="https://mugurbil.github.io">Back to Home Page</a></p><p>
+  </style></head><body><div class="content"><h1>Feature Stability</h1><!--introduction--><p>Mehmet Ugurbil</p><p>Unversity of Minnesota</p><p>02-Jul-2018</p><p>
 <head>
 <style>
 iframe {
@@ -104,10 +104,10 @@ TIE-Net-Weak2 = TIE-Net-Weak1 with gaussian noise, uniformly random deviation.
 Frame 1:
 <select name="options" id="options1" onChange="changeFunction('iframe1', 'options1', 'options2', 'options3')">
 <option value="empty"> Dataset </option>
-<option value="StabilityType/TieNet_"> TIE-Net </option>
-<option value="StabilityType/RedNet_"> TIE-Net-Reduced1 </option>
-<option value="StabilityType/MltNet_"> TIE-Net-Weak1 </option>
-<option value="StabilityType/ErrNet_"> TIE-Net-Weak2 </option>
+<option value="StabilityType/TieNet_"> TIENet </option>
+<option value="StabilityType/RedNet_"> TIENet-Reduced1 </option>
+<option value="StabilityType/MltNet_"> TIENet-Weak1 </option>
+<option value="StabilityType/ErrNet_"> TIENet-Weak2 </option>
 </select>
 <select name="options" id="options2" onChange="changeFunction('iframe1', 'options1', 'options2', 'options3')">
 <option value="empty"> FS Method </option>
@@ -133,10 +133,10 @@ Frame 1:
 Frame 2:
 <select name="options" id="options4" onChange="changeFunction('iframe2', 'options4', 'options5', 'options6')">
 <option value="empty"> Dataset </option>
-<option value="StabilityType/TieNet_"> TIE-Net </option>
-<option value="StabilityType/RedNet_"> TIE-Net-Reduced1 </option>
-<option value="StabilityType/MltNet_"> TIE-Net-Weak1 </option>
-<option value="StabilityType/ErrNet_"> TIE-Net-Weak2 </option>
+<option value="StabilityType/TieNet_"> TIENet </option>
+<option value="StabilityType/RedNet_"> TIENet-Reduced1 </option>
+<option value="StabilityType/MltNet_"> TIENet-Weak1 </option>
+<option value="StabilityType/ErrNet_"> TIENet-Weak2 </option>
 </select>
 <select name="options" id="options5" onChange="changeFunction('iframe2', 'options4', 'options5', 'options6')">
 <option value="empty"> FS Method </option>
@@ -213,9 +213,7 @@ $(document).ready(function(){
 %
 % Unversity of Minnesota
 %
-% 05-Jun-2018
-%
-% <https://mugurbil.github.io Back to Home Page>
+% 02-Jul-2018
 %
 % <html>
 % <head>
@@ -274,10 +272,10 @@ $(document).ready(function(){
 % Frame 1:
 % <select name="options" id="options1" onChange="changeFunction('iframe1', 'options1', 'options2', 'options3')">
 % <option value="empty"> Dataset </option>
-% <option value="StabilityType/TieNet_"> TIE-Net </option>
-% <option value="StabilityType/RedNet_"> TIE-Net-Reduced1 </option>
-% <option value="StabilityType/MltNet_"> TIE-Net-Weak1 </option>
-% <option value="StabilityType/ErrNet_"> TIE-Net-Weak2 </option>
+% <option value="StabilityType/TieNet_"> TIENet </option>
+% <option value="StabilityType/RedNet_"> TIENet-Reduced1 </option>
+% <option value="StabilityType/MltNet_"> TIENet-Weak1 </option>
+% <option value="StabilityType/ErrNet_"> TIENet-Weak2 </option>
 % </select>
 % <select name="options" id="options2" onChange="changeFunction('iframe1', 'options1', 'options2', 'options3')">
 % <option value="empty"> FS Method </option>
@@ -303,10 +301,10 @@ $(document).ready(function(){
 % Frame 2:
 % <select name="options" id="options4" onChange="changeFunction('iframe2', 'options4', 'options5', 'options6')">
 % <option value="empty"> Dataset </option>
-% <option value="StabilityType/TieNet_"> TIE-Net </option>
-% <option value="StabilityType/RedNet_"> TIE-Net-Reduced1 </option>
-% <option value="StabilityType/MltNet_"> TIE-Net-Weak1 </option>
-% <option value="StabilityType/ErrNet_"> TIE-Net-Weak2 </option>
+% <option value="StabilityType/TieNet_"> TIENet </option>
+% <option value="StabilityType/RedNet_"> TIENet-Reduced1 </option>
+% <option value="StabilityType/MltNet_"> TIENet-Weak1 </option>
+% <option value="StabilityType/ErrNet_"> TIENet-Weak2 </option>
 % </select>
 % <select name="options" id="options5" onChange="changeFunction('iframe2', 'options4', 'options5', 'options6')">
 % <option value="empty"> FS Method </option>
